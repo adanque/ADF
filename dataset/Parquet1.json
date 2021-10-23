@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"fcolname": {
+			"city": {
 				"type": "string"
 			},
-			"col1p": {
+			"abbr": {
 				"type": "String"
 			}
 		},
@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@concat('cities_',dataset().fcolname,'_',dataset().col1p,'_',utcnow(),'.json')",
+					"value": "@concat('cities_',dataset().city,'_',dataset().abbr,'_',utcnow(),'.json')",
 					"type": "Expression"
 				},
 				"container": "fsdlad1"

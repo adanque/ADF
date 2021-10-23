@@ -104,8 +104,7 @@
 												"ordinal": 1
 											},
 											"sink": {
-												"name": "Columnundefined",
-												"type": "String",
+												"name": "Prop_0",
 												"physicalType": "UTF8"
 											}
 										},
@@ -115,8 +114,7 @@
 												"ordinal": 2
 											},
 											"sink": {
-												"name": "Columnundefined",
-												"type": "String",
+												"name": "Prop_1",
 												"physicalType": "UTF8"
 											}
 										}

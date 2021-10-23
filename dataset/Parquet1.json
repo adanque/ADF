@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@concat('cities_',dataset().fcolname,utcnow(),'.json')\n\n",
+					"value": "@concat('cities_',dataset().fcolname,'_',dataset().col1p,'_',utcnow(),'.json')",
 					"type": "Expression"
 				},
 				"container": "fsdlad1"

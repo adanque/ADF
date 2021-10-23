@@ -104,7 +104,7 @@
 												"ordinal": 1
 											},
 											"sink": {
-												"name": "Prop_0",
+												"name": "City",
 												"physicalType": "UTF8"
 											}
 										},
@@ -114,7 +114,7 @@
 												"ordinal": 2
 											},
 											"sink": {
-												"name": "Prop_1",
+												"name": "Abbr",
 												"physicalType": "UTF8"
 											}
 										}

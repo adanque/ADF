@@ -70,22 +70,12 @@
 								},
 								{
 									"name": "Destination",
-									"value": "fsdlad1//@{concat('cities_',item().prop_0,'_',utcnow(),'.json')}"
+									"value": "fsdlad1//@{concat('cities_','<fcolname>','_','<col1p>','_',utcnow(),'.json')}"
 								}
 							],
 							"typeProperties": {
 								"source": {
 									"type": "DelimitedTextSource",
-									"additionalColumns": [
-										{
-											"name": "col1",
-											"value": "$$COLUMN:Prop_0"
-										},
-										{
-											"name": "col2",
-											"value": "$$COLUMN:Prop_1"
-										}
-									],
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
@@ -114,7 +104,8 @@
 												"ordinal": 1
 											},
 											"sink": {
-												"name": "col1",
+												"name": "Columnundefined",
+												"type": "String",
 												"physicalType": "UTF8"
 											}
 										},
@@ -124,7 +115,8 @@
 												"ordinal": 2
 											},
 											"sink": {
-												"name": "col2",
+												"name": "Columnundefined",
+												"type": "String",
 												"physicalType": "UTF8"
 											}
 										}
@@ -145,14 +137,7 @@
 							"outputs": [
 								{
 									"referenceName": "Parquet1",
-									"type": "DatasetReference",
-									"parameters": {
-										"fcolname": {
-											"value": "@item().prop_0",
-											"type": "Expression"
-										},
-										"col1p": "@item().prop_1"
-									}
+									"type": "DatasetReference"
 								}
 							]
 						}
@@ -160,12 +145,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"valuename": {
-				"type": "string",
-				"defaultValue": "novalue"
-			}
-		},
 		"variables": {
 			"varvalue": {
 				"type": "String"

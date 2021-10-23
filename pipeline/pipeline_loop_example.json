@@ -70,7 +70,7 @@
 								},
 								{
 									"name": "Destination",
-									"value": "fsdlad1//@{concat('cities_','<fcolname>','_','<col1p>','_',utcnow(),'.json')}"
+									"value": "fsdlad1//@{concat('cities_',item().Prop_0,'_',item().Prop_1,'_',utcnow(),'.json')}"
 								}
 							],
 							"typeProperties": {

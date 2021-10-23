@@ -138,11 +138,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"city": {
-											"value": "@item().city",
+											"value": "@item().Prop_0",
 											"type": "Expression"
 										},
 										"abbr": {
-											"value": "@item().abbr",
+											"value": "@item().Prop_1",
 											"type": "Expression"
 										}
 									}

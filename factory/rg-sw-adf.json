@@ -1,0 +1,9 @@
+{
+	"name": "rg-sw-adf",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "701ace7b-c33e-4d64-9a04-9f572094bc1c",
+		"tenantId": "dc85102e-c492-4eeb-9075-b8e8dd891c08"
+	}
+}

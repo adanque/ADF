@@ -137,7 +137,17 @@
 							"outputs": [
 								{
 									"referenceName": "Parquet1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"city": {
+											"value": "@item().city",
+											"type": "Expression"
+										},
+										"abbr": {
+											"value": "@item().abbr",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}

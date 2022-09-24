@@ -151,8 +151,52 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Custom1",
+				"type": "Custom",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"command": {
+						"value": "@pipeline().parameters.Parm1",
+						"type": "Expression"
+					},
+					"resourceLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "fsdlad1/jbs",
+					"referenceObjects": {
+						"linkedServices": [],
+						"datasets": []
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureBatch1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
+		"parameters": {
+			"Parm1": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"varvalue": {
 				"type": "String"

@@ -231,7 +231,7 @@
 								"referenceName": "AzureBlobStorage1",
 								"type": "LinkedServiceReference"
 							},
-							"folderPath": "adfjobs",
+							"folderPath": "fsdlad1",
 							"referenceObjects": {
 								"linkedServices": [],
 								"datasets": []

@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureBlobStorage2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
 		"AzureBatch1_properties_typeProperties_batchUri": {
 			"type": "string",
 			"defaultValue": "https://pytbtch.centralus.batch.azure.com"
@@ -22,10 +26,6 @@
 		"AzureBatch1_properties_typeProperties_accountName": {
 			"type": "string",
 			"defaultValue": "pytbtch"
-		},
-		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
-			"type": "string",
-			"defaultValue": "https://pytfunc.blob.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -57,8 +57,8 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
-					"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
-						"value": "[parameters('AzureBlobStorage2_properties_typeProperties_serviceEndpoint')]"
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
 					},
 					"AzureBatch1_properties_typeProperties_batchUri": {
 						"value": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]"

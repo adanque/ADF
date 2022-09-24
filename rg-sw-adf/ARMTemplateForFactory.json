@@ -227,7 +227,11 @@
 								"value": "@pipeline().parameters.Parm1",
 								"type": "Expression"
 							},
-							"folderPath": "",
+							"resourceLinkedService": {
+								"referenceName": "AzureBlobStorage1",
+								"type": "LinkedServiceReference"
+							},
+							"folderPath": "adfjobs",
 							"referenceObjects": {
 								"linkedServices": [],
 								"datasets": []
@@ -258,6 +262,7 @@
 				"lastPublishTime": "2021-10-23T00:54:35Z"
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]"
 			]
 		},

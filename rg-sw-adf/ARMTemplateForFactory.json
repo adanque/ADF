@@ -22,6 +22,10 @@
 		"AzureBatch1_properties_typeProperties_accountName": {
 			"type": "string",
 			"defaultValue": "pytbtch"
+		},
+		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://pytfunc.blob.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -228,7 +232,7 @@
 								"type": "Expression"
 							},
 							"resourceLinkedService": {
-								"referenceName": "AzureBlobStorage1",
+								"referenceName": "AzureBlobStorage2",
 								"type": "LinkedServiceReference"
 							},
 							"folderPath": "job-adfv2-pytfpool",
@@ -262,7 +266,7 @@
 				"lastPublishTime": "2021-10-23T00:54:35Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]"
 			]
 		},
@@ -387,6 +391,20 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"serviceEndpoint": "[parameters('AzureBlobStorage2_properties_typeProperties_serviceEndpoint')]",
+					"accountKind": "Storage"
 				}
 			},
 			"dependsOn": []

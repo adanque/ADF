@@ -17,6 +17,9 @@
 		"AzureBatch1_properties_typeProperties_accountName": {
 			"value": "pytbtch"
 		},
+		"AzureBlobStorage2_properties_typeProperties_serviceEndpoint": {
+			"value": "https://pytfunc.blob.core.windows.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},

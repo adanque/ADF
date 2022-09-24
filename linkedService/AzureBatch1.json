@@ -1,0 +1,16 @@
+{
+	"name": "AzureBatch1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBatch",
+		"typeProperties": {
+			"batchUri": "https://pytbtch.centralus.batch.azure.com",
+			"poolName": "pytfpool",
+			"accountName": "pytbtch",
+			"linkedServiceName": {
+				"referenceName": "AzureBlobStorage1",
+				"type": "LinkedServiceReference"
+			}
+		}
+	}
+}

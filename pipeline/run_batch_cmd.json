@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"command": {
-						"value": "cmd /c dir",
+						"value": "python runhw.py",
 						"type": "Expression"
 					},
 					"resourceLinkedService": {

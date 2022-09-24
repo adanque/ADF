@@ -371,7 +371,7 @@
 				"parameters": {
 					"Parm1": {
 						"type": "string",
-						"defaultValue": "cmd /c echo hello world"
+						"defaultValue": "cmd /c dir"
 					}
 				},
 				"variables": {

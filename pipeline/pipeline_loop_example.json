@@ -176,11 +176,7 @@
 						"value": "@pipeline().parameters.Parm1",
 						"type": "Expression"
 					},
-					"resourceLinkedService": {
-						"referenceName": "AzureBlobStorage1",
-						"type": "LinkedServiceReference"
-					},
-					"folderPath": "fsdlad1/jbs",
+					"folderPath": "",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []

@@ -19,7 +19,11 @@
 						"value": "@pipeline().parameters.Parm1",
 						"type": "Expression"
 					},
-					"folderPath": "",
+					"resourceLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "job-adfv2-pytfpool",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []

@@ -1,5 +1,5 @@
 {
-	"name": "pipeline_loop_example",
+	"name": "run_batch_cmd",
 	"properties": {
 		"activities": [
 			{

@@ -33,7 +33,8 @@
 		],
 		"parameters": {
 			"Parm1": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "cmd /c echo hello world"
 			}
 		},
 		"variables": {

@@ -16,14 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"command": {
-						"value": "@pipeline().parameters.Parm1",
+						"value": "cmd /c dir",
 						"type": "Expression"
 					},
 					"resourceLinkedService": {
 						"referenceName": "AzureBlobStorage1",
 						"type": "LinkedServiceReference"
 					},
-					"folderPath": "fsdlad1",
+					"folderPath": "adfjobs",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []

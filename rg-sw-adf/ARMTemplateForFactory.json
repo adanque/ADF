@@ -215,7 +215,7 @@
 						"type": "Custom",
 						"dependsOn": [],
 						"policy": {
-							"timeout": "0.12:00:00",
+							"timeout": "0.00:02:00",
 							"retry": 0,
 							"retryIntervalInSeconds": 30,
 							"secureOutput": false,
@@ -227,7 +227,11 @@
 								"value": "@pipeline().parameters.Parm1",
 								"type": "Expression"
 							},
-							"folderPath": "",
+							"resourceLinkedService": {
+								"referenceName": "AzureBlobStorage1",
+								"type": "LinkedServiceReference"
+							},
+							"folderPath": "job-adfv2-pytfpool",
 							"referenceObjects": {
 								"linkedServices": [],
 								"datasets": []
@@ -258,6 +262,7 @@
 				"lastPublishTime": "2021-10-23T00:54:35Z"
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]"
 			]
 		},

@@ -23,7 +23,7 @@
 						"referenceName": "AzureBlobStorage1",
 						"type": "LinkedServiceReference"
 					},
-					"folderPath": "adfjobs",
+					"folderPath": "job-adfv2-pytfpool",
 					"referenceObjects": {
 						"linkedServices": [],
 						"datasets": []

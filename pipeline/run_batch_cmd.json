@@ -89,13 +89,7 @@
 				"inputs": [
 					{
 						"referenceName": "DelimitedText2",
-						"type": "DatasetReference",
-						"parameters": {
-							"": {
-								"value": "@activity('Custom1').output",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [

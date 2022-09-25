@@ -16,9 +16,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "out.txt",
+				"fileName": "/output/out.txt",
 				"folderPath": {
-					"value": "@dataset().runId/output/",
+					"value": "@dataset().runId",
 					"type": "Expression"
 				},
 				"container": "job-adfv2-pytfpool"

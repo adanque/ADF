@@ -95,14 +95,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "JsonReadSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -119,7 +119,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Json2",
+						"referenceName": "DelimitedText3",
 						"type": "DatasetReference",
 						"parameters": {
 							"runid": "@activity('Custom1').ActivityRunId"

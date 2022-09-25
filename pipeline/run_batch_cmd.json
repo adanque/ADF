@@ -78,7 +78,7 @@
 						"type": "DelimitedTextSource",
 						"additionalColumns": [
 							{
-								"name": "output",
+								"name": "outvar",
 								"value": {
 									"value": "@variables('output')",
 									"type": "Expression"
@@ -127,7 +127,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText1",
+						"referenceName": "DelimitedText2",
 						"type": "DatasetReference"
 					}
 				],

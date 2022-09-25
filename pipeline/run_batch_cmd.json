@@ -49,7 +49,7 @@
 				"typeProperties": {
 					"variableName": "output",
 					"value": {
-						"value": "@activity('Custom1').output.customOutput",
+						"value": "@activity('Custom1').output.outputs[0]",
 						"type": "Expression"
 					}
 				}

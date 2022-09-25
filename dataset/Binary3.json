@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "@concat('stdout_', formatDateTime(convertTimeZone(utcnow(),'UTC','Central Standard Time'),'yyyy-MM-ddTHHmmss'),’.txt’)",
+				"fileName": "@concat('stdout_', formatDateTime(convertTimeZone(utcnow(),'UTC','Central Standard Time'),'yyyy-MM-ddTHHmmss'),'.txt')",
 				"folderPath": "adflog",
 				"container": "job-adfv2-pytfpool"
 			}

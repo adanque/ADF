@@ -290,7 +290,7 @@
 								"type": "DelimitedTextSource",
 								"additionalColumns": [
 									{
-										"name": "output",
+										"name": "outvar",
 										"value": {
 											"value": "@variables('output')",
 											"type": "Expression"
@@ -339,7 +339,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "DelimitedText1",
+								"referenceName": "DelimitedText2",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -377,7 +377,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
 				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]"
 			]
 		},

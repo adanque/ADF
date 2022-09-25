@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"command": {
-						"value": "python runhw.py",
+						"value": "@pipeline().parameters.Parm1",
 						"type": "Expression"
 					},
 					"resourceLinkedService": {

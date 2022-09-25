@@ -5,17 +5,13 @@
 			"referenceName": "AzureBlobStorage2",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"runId": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "@dataset().runId",
+				"fileName": "@concat('stdout_',formatDateTime(utcnow(),'yyyy'),'_',formatDateTime(utcnow(),'MM'),'_',formatDateTime(utcnow(),'dd'),'.txt')",
+				"folderPath": "adflog",
 				"container": "job-adfv2-pytfpool"
 			}
 		}

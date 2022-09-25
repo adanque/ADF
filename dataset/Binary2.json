@@ -17,7 +17,7 @@
 				"type": "AzureBlobStorageLocation",
 				"fileName": "output/stdout.txt",
 				"folderPath": "@dataset().runid",
-				"container": "job-adfv2-pytfpool"
+				"container": "adfjobs"
 			}
 		}
 	}

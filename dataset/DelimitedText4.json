@@ -9,7 +9,8 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"container": "job-adfv2-pytfpool"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

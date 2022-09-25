@@ -80,6 +80,65 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Binary2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"runid": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "output/stdout.txt",
+						"folderPath": {
+							"value": "@dataset().runid",
+							"type": "Expression"
+						},
+						"container": "adfjobs"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Binary3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureBlobStorage2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@concat('stdout_', formatDateTime(convertTimeZone(utcnow(),'UTC','Central Standard Time'),'yyyy-MM-ddTHHmmss'),'.txt')",
+							"type": "Expression"
+						},
+						"folderPath": "adflog",
+						"container": "job-adfv2-pytfpool"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -155,63 +214,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"city": {
-						"type": "string"
-					},
-					"abbr": {
-						"type": "String"
-					}
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@concat('cities_',dataset().city,'_',dataset().abbr,'_',utcnow(),'.json')",
-							"type": "Expression"
-						},
-						"container": "fsdlad1"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBatch1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBatch",
-				"typeProperties": {
-					"batchUri": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]",
-					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
-					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
-					"linkedServiceName": {
-						"referenceName": "AzureBlobStorage2",
-						"type": "LinkedServiceReference"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/DelimitedText3')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -231,7 +233,10 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "output/stdout.txt",
-						"folderPath": "@dataset().runid",
+						"folderPath": {
+							"value": "@dataset().runid",
+							"type": "Expression"
+						},
 						"container": "adfjobs"
 					},
 					"columnDelimiter": ",",
@@ -286,7 +291,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "@concat('stdout_',formatDateTime(utcnow(),'yyyy'),'_',formatDateTime(utcnow(),'MM'),'_',formatDateTime(utcnow(),'dd'),'.txt')",
+						"fileName": {
+							"value": "@concat('stdout_',formatDateTime(utcnow(),'yyyy'),'_',formatDateTime(utcnow(),'MM'),'_',formatDateTime(utcnow(),'dd'),'.txt')",
+							"type": "Expression"
+						},
 						"folderPath": "adflog",
 						"container": "job-adfv2-pytfpool"
 					}
@@ -317,7 +325,10 @@
 					"location": {
 						"type": "AzureBlobStorageLocation",
 						"fileName": "output/stdout.txt",
-						"folderPath": "@dataset().runid",
+						"folderPath": {
+							"value": "@dataset().runid",
+							"type": "Expression"
+						},
 						"container": "adfjobs"
 					}
 				},
@@ -328,51 +339,55 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Binary2')]",
+			"name": "[concat(parameters('factoryName'), '/Parquet1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage2",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"runid": {
+					"city": {
 						"type": "string"
+					},
+					"abbr": {
+						"type": "String"
 					}
 				},
 				"annotations": [],
-				"type": "Binary",
+				"type": "Parquet",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "output/stdout.txt",
-						"folderPath": "@dataset().runid",
-						"container": "adfjobs"
-					}
-				}
+						"fileName": {
+							"value": "@concat('cities_',dataset().city,'_',dataset().abbr,'_',utcnow(),'.json')",
+							"type": "Expression"
+						},
+						"container": "fsdlad1"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Binary3')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/AzureBatch1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureBlobStorage2",
-					"type": "LinkedServiceReference"
-				},
 				"annotations": [],
-				"type": "Binary",
+				"type": "AzureBatch",
 				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "@concat('stdout_', formatDateTime(convertTimeZone(utcnow(),'UTC','Central Standard Time'),'yyyy-MM-ddTHHmmss'),’.txt’)",
-						"folderPath": "adflog",
-						"container": "job-adfv2-pytfpool"
+					"batchUri": "[parameters('AzureBatch1_properties_typeProperties_batchUri')]",
+					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
+					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
+					"linkedServiceName": {
+						"referenceName": "AzureBlobStorage2",
+						"type": "LinkedServiceReference"
 					}
 				}
 			},
@@ -730,112 +745,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/run_batch_cmd_copy1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Custom1",
-						"type": "Custom",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.00:10:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"command": {
-								"value": "@pipeline().parameters.Parm1",
-								"type": "Expression"
-							},
-							"resourceLinkedService": {
-								"referenceName": "AzureBlobStorage2",
-								"type": "LinkedServiceReference"
-							},
-							"folderPath": "job-adfv2-pytfpool",
-							"referenceObjects": {
-								"linkedServices": [],
-								"datasets": []
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "AzureBatch1",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Lookup1",
-						"type": "Lookup",
-						"dependsOn": [
-							{
-								"activity": "Custom1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"dataset": {
-								"referenceName": "DelimitedText3",
-								"type": "DatasetReference",
-								"parameters": {
-									"runid": "@activity('Custom1').ActivityRunId"
-								}
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"parameters": {
-					"Parm1": {
-						"type": "string",
-						"defaultValue": "cmd /c dir"
-					}
-				},
-				"variables": {
-					"varvalue": {
-						"type": "String"
-					},
-					"output": {
-						"type": "String"
-					}
-				},
-				"annotations": [],
-				"lastPublishTime": "2021-10-23T00:54:35Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]",
-				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/run_batch_cmd_GOOD')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1159,6 +1068,112 @@
 				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]",
 				"[concat(variables('factoryId'), '/datasets/Binary2')]",
 				"[concat(variables('factoryId'), '/datasets/Binary3')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/run_batch_cmd_copy1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Custom1",
+						"type": "Custom",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.00:10:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"command": {
+								"value": "@pipeline().parameters.Parm1",
+								"type": "Expression"
+							},
+							"resourceLinkedService": {
+								"referenceName": "AzureBlobStorage2",
+								"type": "LinkedServiceReference"
+							},
+							"folderPath": "job-adfv2-pytfpool",
+							"referenceObjects": {
+								"linkedServices": [],
+								"datasets": []
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureBatch1",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [
+							{
+								"activity": "Custom1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"dataset": {
+								"referenceName": "DelimitedText3",
+								"type": "DatasetReference",
+								"parameters": {
+									"runid": "@activity('Custom1').ActivityRunId"
+								}
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"Parm1": {
+						"type": "string",
+						"defaultValue": "cmd /c dir"
+					}
+				},
+				"variables": {
+					"varvalue": {
+						"type": "String"
+					},
+					"output": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-10-23T00:54:35Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBatch1')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText3')]"
 			]
 		}
 	]

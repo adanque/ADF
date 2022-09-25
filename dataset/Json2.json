@@ -15,7 +15,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "output/stdout.txt",
+				"fileName": "@concat('output/stdout_',formatDateTime(utcnow(),'yyyy'),'/',formatDateTime(utcnow(),'MM'),'/',formatDateTime(utcnow(),'dd'),'.txt')",
 				"folderPath": "@dataset().runid",
 				"container": "adfjobs"
 			}

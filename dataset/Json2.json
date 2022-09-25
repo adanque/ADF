@@ -15,7 +15,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "output/stdout.txt'",
+				"fileName": "output/stdout.txt",
 				"folderPath": "@dataset().runid",
 				"container": "adfjobs"
 			}

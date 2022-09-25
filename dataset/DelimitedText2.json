@@ -5,12 +5,22 @@
 			"referenceName": "AzureBlobStorage2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"runId": {
+				"type": "string",
+				"defaultValue": "@activity('Custom1').ActivityRunId"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "out.txt",
+				"folderPath": {
+					"value": "@dataset().runId/output/",
+					"type": "Expression"
+				},
 				"container": "job-adfv2-pytfpool"
 			},
 			"columnDelimiter": ",",

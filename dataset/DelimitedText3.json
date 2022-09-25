@@ -5,6 +5,11 @@
 			"referenceName": "AzureBlobStorage2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"runid": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

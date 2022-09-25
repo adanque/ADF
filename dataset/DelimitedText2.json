@@ -11,10 +11,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "output/stdout.txt",
-				"folderPath": {
-					"value": "@dataset().runid",
-					"type": "Expression"
-				},
+				"folderPath": "@dataset().runid",
 				"container": "adfjobs"
 			},
 			"columnDelimiter": ",",

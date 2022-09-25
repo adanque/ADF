@@ -10,6 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "out.txt",
+				"folderPath": "out",
 				"container": "job-adfv2-pytfpool"
 			},
 			"columnDelimiter": ",",

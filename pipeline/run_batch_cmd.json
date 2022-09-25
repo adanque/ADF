@@ -107,12 +107,8 @@
 					},
 					"enableStaging": false,
 					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						"value": "@variables('output')",
+						"type": "Expression"
 					}
 				},
 				"inputs": [

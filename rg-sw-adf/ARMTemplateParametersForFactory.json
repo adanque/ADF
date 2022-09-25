@@ -15,7 +15,7 @@
 			"value": "https://pytbtch.centralus.batch.azure.com"
 		},
 		"AzureBatch1_properties_typeProperties_poolName": {
-			"value": "pytfpool"
+			"value": "poolt2"
 		},
 		"AzureBatch1_properties_typeProperties_accountName": {
 			"value": "pytbtch"

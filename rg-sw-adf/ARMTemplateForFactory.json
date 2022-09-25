@@ -21,7 +21,7 @@
 		},
 		"AzureBatch1_properties_typeProperties_poolName": {
 			"type": "string",
-			"defaultValue": "pytfpool"
+			"defaultValue": "poolt2"
 		},
 		"AzureBatch1_properties_typeProperties_accountName": {
 			"type": "string",
@@ -373,13 +373,13 @@
 					"poolName": "[parameters('AzureBatch1_properties_typeProperties_poolName')]",
 					"accountName": "[parameters('AzureBatch1_properties_typeProperties_accountName')]",
 					"linkedServiceName": {
-						"referenceName": "AzureBlobStorage1",
+						"referenceName": "AzureBlobStorage2",
 						"type": "LinkedServiceReference"
 					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage2')]"
 			]
 		},
 		{

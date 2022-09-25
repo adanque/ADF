@@ -21,7 +21,7 @@
 		},
 		"AzureBatch1_properties_typeProperties_poolName": {
 			"type": "string",
-			"defaultValue": "pytfpool"
+			"defaultValue": "poolt2"
 		},
 		"AzureBatch1_properties_typeProperties_accountName": {
 			"type": "string",

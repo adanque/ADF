@@ -383,6 +383,26 @@
 							"referenceName": "AzureBatch1",
 							"type": "LinkedServiceReference"
 						}
+					},
+					{
+						"name": "Set variable1",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "Custom1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "output",
+							"value": {
+								"value": "@activity('Custom1').output",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"policy": {
@@ -397,6 +417,9 @@
 				},
 				"variables": {
 					"varvalue": {
+						"type": "String"
+					},
+					"output": {
 						"type": "String"
 					}
 				},

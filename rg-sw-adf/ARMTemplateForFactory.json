@@ -685,7 +685,7 @@
 				"parameters": {
 					"Parm1": {
 						"type": "string",
-						"defaultValue": "cmd /c dir"
+						"defaultValue": "python --version"
 					}
 				},
 				"variables": {

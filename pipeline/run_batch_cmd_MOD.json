@@ -132,7 +132,7 @@
 		"parameters": {
 			"Parm1": {
 				"type": "string",
-				"defaultValue": "python --version"
+				"defaultValue": "cmd /c \"python --version\""
 			}
 		},
 		"variables": {

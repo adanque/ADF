@@ -1,0 +1,118 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@or(equals(variables('IsRunning'),['running']),greater(variables('IsRunning'),5))",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Lookup1",
+							"type": "Lookup",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"dataset": {
+									"referenceName": "StatFile",
+									"type": "DatasetReference"
+								}
+							}
+						},
+						{
+							"name": "IsRunning",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Lookup1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "IsRunning",
+								"value": {
+									"value": "@activity('Lookup1').output",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "SetTCount",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "IsRunning",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "TCount",
+								"value": "@string(add(int(variables('Count')),1))"
+							}
+						},
+						{
+							"name": "SetCount",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "SetTCount",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Count",
+								"value": "@variables('TCount')"
+							}
+						}
+					],
+					"timeout": "0.12:00:00"
+				}
+			}
+		],
+		"variables": {
+			"IsRunning": {
+				"type": "String"
+			},
+			"Count": {
+				"type": "String"
+			},
+			"TCount": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}

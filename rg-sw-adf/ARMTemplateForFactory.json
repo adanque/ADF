@@ -1198,7 +1198,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"expression": {
-								"value": "@or(equals(variables('IsRunning'),['running']),greater(variables('IsRunning'),5))",
+								"value": "@equals(variables('IsRunning'),['running'])",
 								"type": "Expression"
 							},
 							"activities": [

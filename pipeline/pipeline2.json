@@ -77,7 +77,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"variableName": "TCount",
-								"value": "@string(add(int(variables('Count')),1))"
+								"value": "@string(add(int(string(variables('Count'))),1))"
 							}
 						},
 						{

@@ -58,7 +58,7 @@
 							"typeProperties": {
 								"variableName": "IsRunning",
 								"value": {
-									"value": "@activity('Lookup1').output",
+									"value": "@string(activity('Lookup1').output)",
 									"type": "Expression"
 								}
 							}
